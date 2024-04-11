@@ -1,0 +1,48 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+@import url('./reset.css');
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.gallery__item {
+    width: calc(20% - 16px);
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.gallery__figure {
+    margin: 0;
+}
+
+.gallery__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.gallery__figcaption {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 0 0 8px 8px;
+}
+
+@media (max-width: 768px) {
+    .gallery__item {
+        width: calc(33.33% - 16px);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery__item {
+        width: 100%;
+    }
+}
