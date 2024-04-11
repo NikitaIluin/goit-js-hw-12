@@ -1,32 +1,33 @@
 import axios from 'axios';
 
-const API_KEY = '43289261-b2f679df5fe28faf218337d96';
-const BASE_URL = 'https://pixabay.com/api/';
-
-async function fetchImages(query, page, perPage = 15) {
+export async function fetchImages(query, page = 1) {
   try {
-    const response = await axios.get(BASE_URL, {
-      params: {
-        key: API_KEY,
-        q: query,
-        image_type: 'photo',
-        orientation: 'horizontal',
-        safesearch: true,
-        page: page,
-        per_page: perPage,
-      },
-    });
-
-    const { data } = response;
-    if (data.totalHits === 0) {
+    const response = await axios.get(`https://pixabay.com/api/?key=42977219-0f6c9f9217f976d8651793c3a&q=${query}&image_type=photo&per_page=15&page=${page}&orientation=horizontal&safesearch=true`);
+    
+    if (response.data.hits.length === 0) {
       throw new Error('No images found');
     }
 
-    return data.hits;
+    return response.data.hits;
   } catch (error) {
-    console.error('Error fetching images:', error);
-    throw error;
+    throw new Error(error.response.data.message || 'Failed to fetch images. Please try again later.');
   }
 }
-
-export { fetchImages };
+axios({
+  method: 'post',
+  url: '/user/12345',
+  data: {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+  }
+});
+axios({
+  method: 'get',
+  url: 'http://bit.ly/2mTM3nY',
+  responseType: 'stream'
+})
+  .then(function (response) {
+    response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+  });
+  // Send a GET request (default method)
+axios('/user/12345');
