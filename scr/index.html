@@ -1,31 +1,26 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search Page</title>
+    <title>Vanilla App Template</title>
     <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="../node_modules/simplelightbox/dist/simple-lightbox.min.css" />
-    <!-- <link rel="stylesheet" href="node_modules/simplelightbox/dist/simple-lightbox.min.css" /> -->
-
 </head>
 
 <body>
-    <form class="formForInput">
-        <input class="searchInput" name="animal" />
-        <button class="searchButton">Search</button>
-    </form>
-    <ul class="photoGallery gallery"></ul>
-    <!-- <button class="loadMoreButton" style="display: none;">Load more</button> -->
-    <button class="loadMoreButton">Load more</button>
 
-    <span class="loaderContainer">
-        <span class="loader"></span>
-    </span>
-    <script type="module" src="./main.js" defer></script>
+    <form class="form">
+        <input type="text" class="form-input" name="input" placeholder="Search images..." />
+        <button class="search-btn">Search</button>
+    </form>
+
+    <ul class="gallery"></ul>
+    <button class="load-more-btn">Load more</button>
+    <span class="loader"></span>
+
+    <script type="module" src="./main.js"></script>
 </body>
 
 </html>
